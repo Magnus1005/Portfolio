@@ -15,7 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
 }
 
 nav.topnav {
@@ -49,7 +49,7 @@ nav.topnav {
   background-color: transparent;
 }
 nav.topnav a {
-  line-height: 0; /* Removes any extra space from line height */
+  line-height: 0;
 }
 
 nav.topnav a:hover {
@@ -85,7 +85,7 @@ main.container {
   flex: 1;
   text-align: center;
   padding: 20px;
-  padding-top: 60px; /* Space for the fixed nav bar */
+  padding-top: 60px;
   box-sizing: border-box;
 }
 
@@ -95,15 +95,15 @@ h1, h2 {
   margin: 0;
   padding: 0 10px;
   box-sizing: border-box;
-  word-wrap: break-word; /* Ensure long words break and don't overflow */
+  word-wrap: break-word;
 }
 
 h1 {
-  font-size: 5vw; /* Responsive font size based on viewport width */
+  font-size: 5vw;
 }
 
 h2 {
-  font-size: 4vw; /* Responsive font size based on viewport width */
+  font-size: 4vw;
 }
 
 .cursor {
@@ -127,12 +127,12 @@ section {
 
 section.introduction {
   display: grid;
-  grid-template-columns: 1fr auto; /* Responsive layout for larger screens */
+  grid-template-columns: 1fr auto;
   gap: 20px;
   padding: 10px;
   align-items: center;
   box-sizing: border-box;
-  max-width: 100%; /* Ensure no overflow */
+  max-width: 100%;
 }
 
 .headder, .title {
@@ -140,8 +140,8 @@ section.introduction {
 }
 
 .photo {
-  width: 100%; /* Full width for smaller screens */
-  max-width: 600px; /* Limit the maximum width */
+  width: 100%;
+  max-width: 600px;
   border-radius: 5%;
   grid-column: 2;
   grid-row-start: 1;
@@ -157,11 +157,11 @@ footer.footer {
   position: sticky;
   bottom: 0;
   width: 100%;
-  z-index: 1000; /* Ensure footer is above other content */
+  z-index: 1000;
   box-sizing: border-box;
-  display: flex; /* Enables Flexbox layout */
-  justify-content: space-evenly; /* Evenly distributes space between items */
-  align-items: center; /* Centers items vertically */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 
@@ -174,20 +174,20 @@ footer.footer {
 
 @media (max-width: 768px) {
   section.introduction {
-    grid-template-columns: 1fr; /* Stack items vertically on smaller screens */
+    grid-template-columns: 1fr;
   }
 
   .photo {
-    max-width: none; /* Remove max-width restriction on small screens */
+    max-width: none;
     grid-column: 1;
     grid-row: 3;
   }
 
   h1 {
-    font-size: 8vw; /* Larger font size for small screens */
+    font-size: 8vw;
   }
 
   h2 {
-    font-size: 6vw; /* Larger font size for small screens */
+    font-size: 6vw;
   }
 }
