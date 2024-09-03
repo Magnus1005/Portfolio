@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const typedTextElement = document.getElementById('typed-text');
     const subtitleElement = document.getElementById('subtitle');
-    const cursorElement = document.querySelector('.cursor');
+    const cursorElementHeadder = document.querySelector('.cursor-headder');
+    const cursorElementTitle = document.querySelector('.cursor-title');
     const headderText = ["Hi", ", I'm Magnus"];
     const titles = ["Software developer", "Developer", "UI Designer"];
     const prefixText = "I'm a ";
@@ -55,9 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
         titleIndex = (titleIndex + 1) % titles.length;
         cycleTitles();
     }
-    function hideCursor() {
-        cursorElement.style.visibility = 'hidden';
-        cursorElement.style.animation = 'none';
+    function hideCursor(cursor) {
+        cursor.style.visibility = 'hidden';
+    }
+    function showCursor(cursor){
+        cursor.style.visibility = 'visible';
     }
 
     async function Init() {
@@ -66,8 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
         await delay(1500);
         await typeText(typedTextElement, headderText[1], 100);
 
-        hideCursor();
+        hideCursor(cursorElementHeadder);
         
+        showCursor(cursorElementTitle);
         await delay(2000);
         await typeText(subtitleElement, prefixText, 100);
         

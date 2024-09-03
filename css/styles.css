@@ -7,12 +7,13 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font);
   margin: 0;
   padding: 0;
   background-color: var(--background);
   color: var(--text);
   display: flex;
+  align-items: center;
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
@@ -52,8 +53,7 @@ nav.topnav a {
   line-height: 0;
 }
 
-nav.topnav a:hover {
-}
+
 .mail-icon:hover, .linkedin-icon:hover{
   background-color: var(--button-hover);
   border-radius: 25%;
@@ -83,14 +83,17 @@ nav.topnav a:hover {
 
 main.container {
   flex: 1;
-  text-align: center;
-  padding: 20px;
+  text-align: start;
   padding-top: 60px;
   box-sizing: border-box;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 h1, h2 {
-  font-family: var(--font);
   color: var(--text);
   margin: 0;
   padding: 0 10px;
@@ -99,17 +102,22 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: 5em;
 }
 
 h2 {
-  font-size: 4vw;
+  font-size: 2em;
+}
+h3 {
+  font-size: 2em;
 }
 
-.cursor {
-  font-weight: bold;
+.cursor-headder, .cursor-title {
   color: var(--text);
   animation: blink 0.7s infinite;
+}
+.cursor-title{
+  visibility: hidden;
 }
 
 @keyframes blink {
@@ -122,7 +130,8 @@ h2 {
 section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
+  font-size: 1.1rem;
 }
 
 section.introduction {
@@ -132,43 +141,82 @@ section.introduction {
   padding: 10px;
   align-items: center;
   box-sizing: border-box;
-  max-width: 100%;
+  padding-bottom: 200px;
+}
+
+.section-headder {
+  margin: 0;
+
 }
 
 .headder, .title {
   grid-column: 1;
+  align-self: flex-end
 }
 
-.photo {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 5%;
-  grid-column: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
 
 
 footer.footer {
-  background-color: var(--highlight);
-  color: white;
+  color: var(--text);
   text-align: center;
-  padding: 10px;
-  position: sticky;
+  padding: 10px 20px;
+
+
   bottom: 0;
   width: 100%;
   z-index: 1000;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  gap: 20px;
+  
+  align-items: center;
+  border-top: 1px solid var(--highlight); /* Adds a top border */
+
+
+}
+
+
+
+footer.footer a {
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.footer-content {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  
+}
+
+
+
+
+.made-in-container {
+  display: inline-flex;
   align-items: center;
 }
 
-
-
-.mail-icon-footer, .linkedin-icon-footer, .discord-icon-footer {
-  width: 25px;
+.made-in-container p {
+  margin: 0;
+  padding-right: 5px; /* Add some space between the text and the flag */
 }
+
+.made-in-container img {
+  vertical-align: middle;
+}
+
+
+
+
+
+
 
 
 
@@ -184,10 +232,38 @@ footer.footer {
   }
 
   h1 {
-    font-size: 8vw;
+    font-size: 2em;
   }
 
   h2 {
-    font-size: 6vw;
+    font-size: 1.2em;
   }
+  main.container {
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
+  footer.footer {
+    padding: 10px;
+
+  
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+    align-items: center;
+    border-top: 1px solid var(--highlight); /* Adds a top border */
+  
+  }
+
+  footer.footer a, p {
+    font-size: 10px;
+  }
+  
 }
