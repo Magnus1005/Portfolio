@@ -171,7 +171,7 @@ footer.footer {
   gap: 20px;
   
   align-items: center;
-  border-top: 1px solid var(--highlight); /* Adds a top border */
+  border-top: 1px solid var(--highlight);
 
 
 }
@@ -205,7 +205,7 @@ footer.footer a {
 
 .made-in-container p {
   margin: 0;
-  padding-right: 5px; /* Add some space between the text and the flag */
+  padding-right: 5px;
 }
 
 .made-in-container img {
@@ -258,12 +258,11 @@ footer.footer a {
     gap: 20px;
     
     align-items: center;
-    border-top: 1px solid var(--highlight); /* Adds a top border */
+    border-top: 1px solid var(--highlight);
   
   }
 
   footer.footer a, p {
     font-size: 10px;
-  }
-  
+  }  
 }
