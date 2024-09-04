@@ -91,7 +91,7 @@ document.getElementById('see-my-work-button').addEventListener('click', function
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const percentage = 20;
+    const percentage = 0;
 
     let direction;
     let lastScrollTop = 0; // Track the last scroll position
@@ -103,9 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const tester = (window.innerHeight - ((window.innerHeight/100) * percentage))
 
-      if (direction === "UP"){
-        return true;
-      }
+
       return (
         rect.top < tester &&
         rect.bottom >= 0
@@ -114,10 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const isElementBelowScreen = (element) => {
         const rect = element.getBoundingClientRect();
-
-        const test = ((window.innerHeight/100) * percentage) * -1;
-
-        return rect.top > 0;
+        return rect.top > window.innerHeight;
     };
   
     const handleScroll = () => {
@@ -125,14 +120,16 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // Determine the scroll direction
         direction = scrollTop > lastScrollTop ? "DOWN" : "UP";
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         
         elementsToAnimate.forEach(element => {
-            if (isElementInView(element)) {
+            if (isElementInView(element) && direction === "DOWN") {
                 element.classList.add('active');
-            } else if (isElementBelowScreen(element)) {
+            } else if (isElementBelowScreen(element) && direction === "UP") {
+                console.log("Removed")
                 element.classList.remove('active');
             }
+
         });
     };
   

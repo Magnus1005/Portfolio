@@ -141,7 +141,6 @@ section {
 }
 .section-headder {
   margin: 0;
-  margin-top: 2em;
 }
 
 
@@ -159,11 +158,11 @@ section {
 
 .animate-on-scroll {
   opacity: 0;
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition: opacity 2s ease-in, transform 2s ease-in;
 }
 
 .animate-on-scroll.active {
-  animation: fadeIn 1s ease-out forwards;
+  animation: fadeIn 2s ease-in forwards;
 }
 
 
@@ -269,6 +268,7 @@ section {
   
   align-items: center;
   border-top: 1px solid var(--highlight);
+  margin-top: 50px;
 }
 
 
