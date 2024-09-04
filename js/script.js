@@ -81,4 +81,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
     Init();
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const percentage = 20;
+
+    let direction;
+    let lastScrollTop = 0; // Track the last scroll position
+
+    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+  
+    const isElementInView = (element) => {
+      const rect = element.getBoundingClientRect();
+
+      const tester = (window.innerHeight - ((window.innerHeight/100) * percentage))
+
+      if (direction === "UP"){
+        return true;
+      }
+      return (
+        rect.top < tester &&
+        rect.bottom >= 0
+      );
+    };
+
+    const isElementBelowScreen = (element) => {
+        const rect = element.getBoundingClientRect();
+
+        const test = ((window.innerHeight/100) * percentage) * -1;
+
+        return rect.top > 0;
+    };
+  
+    const handleScroll = () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        // Determine the scroll direction
+        direction = scrollTop > lastScrollTop ? "DOWN" : "UP";
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        
+        elementsToAnimate.forEach(element => {
+            if (isElementInView(element)) {
+                element.classList.add('active');
+            } else if (isElementBelowScreen(element)) {
+                element.classList.remove('active');
+            }
+        });
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  });
+  
+  
+
+  
+  
+  
   

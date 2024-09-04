@@ -1,102 +1,18 @@
 :root {
   --background: #000000;
   --text: #ffffff;
-  --font: 'IBM Plex Mono', monospace;
   --button-hover: #1d1e1e;
   --highlight: #333;
-}
 
-body {
-  font-family: var(--font);
-  margin: 0;
-  padding: 0;
-  background-color: var(--background);
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-nav.topnav {
-  background-color: var(--background);
-  display: flex;
-  justify-content: right;
-  position: fixed;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 72px;
-  column-gap: 12px;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  box-sizing: border-box;
-  background-color: transparent;
-}
-
-
-
-
-
-nav.topnav {
-  color: var(--text);
-  text-align: center;
-  text-decoration: none;
-  background-color: var(--background);
-  align-items: center;
-  align-content: center;
-  background-color: transparent;
-}
-nav.topnav a {
-  line-height: 0;
-}
-
-
-.mail-icon:hover, .linkedin-icon:hover{
-  background-color: var(--button-hover);
-  border-radius: 25%;
-  opacity: 100%;
-}
-
-.mail-icon, .linkedin-icon {
-  width: 40px;
-  opacity: 50%;
-}
-
-.top-button-collection{
-  background-color: var(--background);
-  display: flex;
-  justify-content: space-evenly;
-  gap: 5px;
-  align-items: center;
-  align-content: center;
-  height: fit-content;
-  padding: 2px;
-  border-radius: 12px;
-
-}
-
-
-
-
-main.container {
-  flex: 1;
-  text-align: start;
-  padding-top: 60px;
-  box-sizing: border-box;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  padding-left: 5%;
-  padding-right: 5%;
+  --font: 'IBM Plex Mono', monospace;
 }
 
 h1, h2 {
   color: var(--text);
+
   margin: 0;
   padding: 0 10px;
+
   box-sizing: border-box;
   word-wrap: break-word;
 }
@@ -112,6 +28,168 @@ h3 {
   font-size: 2em;
 }
 
+
+
+body {
+  color: var(--text);
+  background-color: var(--background);
+
+  font-family: var(--font);
+  
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nav.topnav {
+  background-color: transparent;
+
+  display: flex;
+  justify-content: right;
+  position: fixed;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 72px;
+  column-gap: 12px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+
+  text-align: center;
+  align-items: center
+}
+
+nav.topnav a {
+  line-height: 0;
+}
+
+.mail-icon, .linkedin-icon {
+  width: 40px;
+  opacity: 50%;
+}
+
+.mail-icon:hover, .linkedin-icon:hover{
+  background-color: var(--button-hover);
+  border-radius: 25%;
+  opacity: 100%;
+}
+
+.top-button-collection{
+  background-color: var(--background);
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+  align-items: center;
+  align-content: center;
+  height: fit-content;
+  padding: 2px;
+  border-radius: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+  flex: 1;
+  text-align: start;
+  padding-top: 60px;
+  box-sizing: border-box;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-size: 1.1rem;
+}
+.section-headder {
+  margin: 0;
+  margin-top: 2em;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.animate-on-scroll.active {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.introduction {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 20px;
+  padding: 10px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
 .cursor-headder, .cursor-title {
   color: var(--text);
   animation: blink 0.7s infinite;
@@ -125,38 +203,57 @@ h3 {
   50% { opacity: 0; }
 }
 
-
-
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  font-size: 1.1rem;
-}
-
-section.introduction {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 20px;
-  padding: 10px;
-  align-items: center;
-  box-sizing: border-box;
-  padding-bottom: 200px;
-}
-
-.section-headder {
-  margin: 0;
-
-}
-
 .headder, .title {
   grid-column: 1;
   align-self: flex-end
 }
+.headder{
+  grid-row: 1;
+}
+.title{
+  grid-row: 2;
+}
+
+.introduction button{
+  background-color: var(--background);
+  color: var(--text);
+  border-color: var(--text);
+  border-style: solid;
+  height: min-content;
+  width: max-content;
+  padding: 10px;
+  border-radius: 12px;
+}
+.introduction-buttons{
+  grid-row: 3;
+  padding: 10px;
+}
 
 
 
-footer.footer {
+
+
+
+
+.about-section {
+  margin-top:75vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
   color: var(--text);
   text-align: center;
   padding: 10px 20px;
@@ -172,13 +269,10 @@ footer.footer {
   
   align-items: center;
   border-top: 1px solid var(--highlight);
-
-
 }
 
 
-
-footer.footer a {
+.footer a {
   color: var(--text);
   text-decoration: none;
   white-space: nowrap;
@@ -194,9 +288,6 @@ footer.footer a {
   gap: 15px;
   
 }
-
-
-
 
 .made-in-container {
   display: inline-flex;
@@ -220,17 +311,22 @@ footer.footer a {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
-  section.introduction {
-    grid-template-columns: 1fr;
-  }
-
-  .photo {
-    max-width: none;
-    grid-column: 1;
-    grid-row: 3;
-  }
-
   h1 {
     font-size: 2em;
   }
@@ -238,6 +334,8 @@ footer.footer a {
   h2 {
     font-size: 1.2em;
   }
+
+
   main.container {
     max-width: 100%;
     padding-left: 10px;
@@ -245,24 +343,20 @@ footer.footer a {
   }
 
 
-  footer.footer {
-    padding: 10px;
-
-  
-    bottom: 0;
-    width: 100%;
-    z-index: 1000;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    
-    align-items: center;
-    border-top: 1px solid var(--highlight);
-  
+  section.introduction {
+    grid-template-columns: 1fr;
   }
 
-  footer.footer a, p {
+
+
+
+
+
+  .footer {
+    padding: 10px;      
+  }
+
+  .footer a, p {
     font-size: 10px;
   }  
 }
