@@ -82,6 +82,12 @@ document.addEventListener('DOMContentLoaded', function() {
     Init();
 });
 
+document.getElementById('see-my-work-button').addEventListener('click', function() {
+    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
