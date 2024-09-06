@@ -141,7 +141,7 @@ nav.topnav a {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 100vh;
+  gap: 10vh;
   
 }
 section {
@@ -149,6 +149,7 @@ section {
   flex-direction: column;
   align-items: start;
   font-size: 1.1rem;
+  padding-top: 20px;
 
 
 }
@@ -171,11 +172,11 @@ section {
 
 .animate-on-scroll {
   opacity: 0;
-  transition: opacity 2s ease-in, transform 2s ease-in;
+  transition: opacity 800ms ease-in, transform 800ms ease-in;
 }
 
 .animate-on-scroll.active {
-  animation: fadeIn 2s ease-in forwards;
+  animation: fadeIn 800ms ease-in forwards;
 }
 
 
@@ -256,27 +257,41 @@ section {
 
 
 
-.project-span {
+.project-container {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  justify-content: space-between;
 }
 
 .project-article {
   width: 100%;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 
 
   border: 2px solid var(--highlight);
   border-radius: 20px;
 
-  padding: 10px;
+  min-width: min-content;
+  overflow: hidden; 
+
 }
 
-.article-right{
-  flex-direction: row-reverse;
+
+.project-article-text {
+  padding: 10px;
+  
+}
+.project-article-text h4 {
+  margin: 0;
+}
+.project-article-image {
+  max-width: 100%;
+
 }
 
 
