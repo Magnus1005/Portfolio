@@ -188,17 +188,36 @@ document.addEventListener('DOMContentLoaded', function () {
       const buttonsContainer = document.createElement('span');
       buttonsContainer.classList.add('project-article-image-buttons');
 
-      // Create arrows
+      // Create left arrow
       const leftArrow = document.createElement('button');
       leftArrow.classList.add('arrow', 'arrow-left');
-      leftArrow.textContent = '◀︎';
+      const leftArrowIcon = document.createElement('img');
+      leftArrowIcon.src = 'assets/icons/arrow-left.svg';
+      leftArrowIcon.width = 20;
+      leftArrow.appendChild(leftArrowIcon);
 
+      // Create right arrow
       const rightArrow = document.createElement('button');
       rightArrow.classList.add('arrow', 'arrow-right');
-      rightArrow.textContent = '▶︎';
+      const rightArrowIcon = document.createElement('img');
+      rightArrowIcon.src = 'assets/icons/arrow-right.svg';
+      rightArrowIcon.width = 20;
+      rightArrow.appendChild(rightArrowIcon);
+
+      // Create dots container
+      const dotsContainer = document.createElement('div');
+      dotsContainer.classList.add('dots-container');
+
+      // Create dots
+      const images = project.imageSrc;
+      images.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dotsContainer.appendChild(dot);
+      });
 
       // Create initial image
-      const images = project.imageSrc;
       const imgElement = document.createElement('img');
       imgElement.classList.add('project-article-image');
       imgElement.src = images[0];
@@ -208,6 +227,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       function updateImage(index) {
         imgElement.src = images[index];
+        // Update dots
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
       }
 
       leftArrow.addEventListener('click', () => {
@@ -220,13 +244,13 @@ document.addEventListener('DOMContentLoaded', function () {
         updateImage(currentIndex);
       });
 
-      if (images.length > 1){
-        buttonsContainer.appendChild(leftArrow);
-        buttonsContainer.appendChild(rightArrow);
+      buttonsContainer.appendChild(leftArrow);
+      buttonsContainer.appendChild(rightArrow);
+      if (images.length > 1) {
+        imageContainer.appendChild(buttonsContainer);
+        imageContainer.appendChild(dotsContainer);
       }
 
-
-      imageContainer.appendChild(buttonsContainer);
       imageContainer.appendChild(imgElement);
 
       // Append text div and image container to article
@@ -238,4 +262,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   })
   .catch(error => console.error('Error fetching data:', error));
+
+
 

@@ -347,12 +347,23 @@ section {
 
 .arrow {
   top: 50%;
-  background-color: transparent;
+  background-color: #ffffff;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 5px;
+  margin: 5px;
   cursor: pointer;
   z-index: 10;
+
+  display: flex;
+  align-items: start;
+  height: fit-content;
+  border-radius: 100%;
+}
+
+.arrow:hover{
+  background-color: #b3b3b3;
+  
 }
 
 .arrow-left {
@@ -363,6 +374,32 @@ section {
   right: 10px;
 }
 
+
+.dots-container {
+  max-width: fit-content;
+  background-color: rgba(50, 50, 50, 0.7);
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  padding: 5px;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #999999;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.dot.active {
+  background-color: #ffffff;
+}
 
 
 
