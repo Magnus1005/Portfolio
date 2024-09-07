@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
           updateImage(currentIndex);
         }
       });
-      
+
 
       // Append text div and image container to article
       article.appendChild(textDiv);
@@ -316,3 +316,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
   
 
+fetch('assets/skills/skills.json')
+    .then(response => response.json())
+    .then(data => {
+      const skillsListContainer = document.querySelector('.skills-list');
+
+      // Iterate over the fetched data and create span elements
+      data.forEach(skill => {
+        const span = document.createElement('span');
+        span.className = 'skill-block';
+        span.setAttribute('data-astro-cid', 'egk6fmth'); // Keep this if needed
+        span.textContent = skill; // Assign the skill name to the span's content
+        skillsListContainer.appendChild(span); // Append the span to the container
+      });
+    })
+    .catch(error => console.error('Error fetching skills:', error));
+
+
+
+const r = document.getElementById("contact-form");
+    r && r.addEventListener("submit", t => {
+        t.preventDefault();
+        console.log("JJJJJJ");
+        const o = new FormData(r)
+        , e = o.get("subject")
+        , n = o.get("body")
+        , c = document.createElement("a");
+        c.href = encodeURI(`mailto:magnuswnissen@hotmail.com?subject=${e}&body=${n}`),
+        c.click()
+    }
+);

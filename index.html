@@ -40,6 +40,10 @@
             I’m passionate about exploring new ideas and bringing them to reality.
             Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet velit nisi morbi suscipit cubilia ultricies primis. Lorem laoreet consequat pulvinar gravida facilisi habitasse vel. Curabitur laoreet id dapibus class semper volutpat morbi sit. Elementum ornare class sed platea mattis congue aliquet taciti. Pharetra ultricies elementum ligula faucibus vivamus tortor diam etiam. Sem adipiscing purus interdum per dui purus volutpat. Aenean ullamcorper proin euismod non vel tempor felis placerat. Rhoncus porttitor ex turpis venenatis ante torquent lobortis. Magnis ut eros vestibulum massa in a tincidunt. Natoque erat nibh morbi convallis donec mollis morbi.
           </p>
+          <h4>My toolkit</h4>
+          <div class="skills-list" data-astro-cid-egk6fmth>
+            <!-- Dynamic spans will be inserted here -->
+        </div>
         </section>
     
     
@@ -62,11 +66,21 @@
     
     
         <section class="contact-section animate-on-scroll">
-          <h3 class="section-headder">Contact</h3>
+          <h3 class="section-headder">Contact me</h3>
           <p>
-            Here goes my contact info.
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet velit nisi morbi suscipit cubilia ultricies primis. Lorem laoreet consequat pulvinar gravida facilisi habitasse vel. Curabitur laoreet id dapibus class semper volutpat morbi sit. Elementum ornare class sed platea mattis congue aliquet taciti. Pharetra ultricies elementum ligula faucibus vivamus tortor diam etiam. Sem adipiscing purus interdum per dui purus volutpat. Aenean ullamcorper proin euismod non vel tempor felis placerat. Rhoncus porttitor ex turpis venenatis ante torquent lobortis. Magnis ut eros vestibulum massa in a tincidunt. Natoque erat nibh morbi convallis donec mollis morbi.
+            If you have any questions form me or wanna work with me feel free to contat me
           </p>
+          <form class="contact-form" id="contact-form" name="contact-form">
+            <label class="contact-form-title">
+                Title
+                <input name="subject" placeholder="What are you're writing about?" maxlength="60">
+            </label>
+            <label class="contact-form-message">
+                Message
+                <textarea name="body" placeholder="Full message goes here..." rows="10"></textarea>
+            </label>
+            <button type="submit" data-track-click="contact:submit-button" class="contact-form-button large">Submit</button>
+        </form>
         </section>
       </div>
   
