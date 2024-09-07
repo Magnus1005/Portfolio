@@ -248,9 +248,31 @@ section {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 .about-section {
   margin-top:75vh;
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -289,16 +311,73 @@ section {
 .project-article-text h4 {
   margin: 0;
 }
-.project-article-image {
+
+
+
+.image-container {
+  position: relative;
   max-width: 100%;
   height:  300px;
 
+}
+.project-article-image {
+  max-width: 100%;
+  height:  100%;
 }
 
 .project-article-image:hover {
   max-width: 100%;
 
 }
+
+.project-article-image-buttons {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.image-container:hover .project-article-image-buttons {
+  display: flex;
+}
+
+
+.arrow {
+  top: 50%;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -401,6 +480,9 @@ section {
 
 
 
+  .project-article-image-buttons {
+    display: flex;
+  }
 
 
 

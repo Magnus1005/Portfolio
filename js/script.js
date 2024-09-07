@@ -154,50 +154,88 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
   fetch('assets/projects/projects.json') // Update this URL to your actual JSON file
   .then(response => response.json())
   .then(data => {
-      const projectsContainer = document.getElementById('projects-container');
+    const projectsContainer = document.getElementById('projects-container');
 
+    data.forEach(project => {
+      // Create article element
+      const article = document.createElement('article');
+      article.classList.add('project-article');
 
-      // Iterate through the fetched data and create project articles
-      data.forEach(project => {
-          // Create article element
-          const article = document.createElement('article');
-          article.classList.add('project-article');
+      // Create text div
+      const textDiv = document.createElement('div');
+      textDiv.classList.add('project-article-text');
 
-          // Create text div
-          const textDiv = document.createElement('div');
-          textDiv.classList.add('project-article-text');
+      // Create title
+      const title = document.createElement('h4');
+      title.textContent = project.title;
 
-          // Create title
-          const title = document.createElement('h4');
-          title.textContent = project.title;
+      // Create description
+      const description = document.createElement('p');
+      description.textContent = project.description;
 
-          // Create description
-          const description = document.createElement('p');
-          description.textContent = project.description;
+      // Append title and description to text div
+      textDiv.appendChild(title);
+      textDiv.appendChild(description);
 
-          // Append title and description to text div
-          textDiv.appendChild(title);
-          textDiv.appendChild(description);
+      // Create image container
+      const imageContainer = document.createElement('div');
+      imageContainer.classList.add('image-container');
 
+      // Create image buttons container
+      const buttonsContainer = document.createElement('span');
+      buttonsContainer.classList.add('project-article-image-buttons');
 
-          // Create image
-          const images = project.imageSrc; // Get the files from this file PATH
-          const image = document.createElement('img');
-          image.classList.add('project-article-image');
-          image.src = project.imageSrc[0]; // User the first image here from images
-          image.alt = project.title;
+      // Create arrows
+      const leftArrow = document.createElement('button');
+      leftArrow.classList.add('arrow', 'arrow-left');
+      leftArrow.textContent = '◀︎';
 
-          // Append text div and image to article
-          article.appendChild(textDiv);
-          article.appendChild(image);
+      const rightArrow = document.createElement('button');
+      rightArrow.classList.add('arrow', 'arrow-right');
+      rightArrow.textContent = '▶︎';
 
+      // Create initial image
+      const images = project.imageSrc;
+      const imgElement = document.createElement('img');
+      imgElement.classList.add('project-article-image');
+      imgElement.src = images[0];
+      imgElement.alt = project.title;
 
-          // Append article to the container
-          projectsContainer.appendChild(article);
+      let currentIndex = 0;
+
+      function updateImage(index) {
+        imgElement.src = images[index];
+      }
+
+      leftArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage(currentIndex);
       });
+
+      rightArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage(currentIndex);
+      });
+
+      if (images.length > 1){
+        buttonsContainer.appendChild(leftArrow);
+        buttonsContainer.appendChild(rightArrow);
+      }
+
+
+      imageContainer.appendChild(buttonsContainer);
+      imageContainer.appendChild(imgElement);
+
+      // Append text div and image container to article
+      article.appendChild(textDiv);
+      article.appendChild(imageContainer);
+
+      // Append article to the container
+      projectsContainer.appendChild(article);
+    });
   })
   .catch(error => console.error('Error fetching data:', error));
+
