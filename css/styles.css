@@ -291,6 +291,12 @@ section {
 }
 .project-article-image {
   max-width: 100%;
+  height:  300px;
+
+}
+
+.project-article-image:hover {
+  max-width: 100%;
 
 }
 

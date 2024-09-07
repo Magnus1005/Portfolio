@@ -1,0 +1,25 @@
+[
+    {
+      "title": "Project 1",
+      "description": "Project 1 description",
+      "imageSrc": [
+        "assets/projects/images/project1.jpg"
+      ]
+    },
+    {
+      "title": "Project 2",
+      "description": "Project 2 description",
+      "imageSrc": [
+        "assets/projects/images/project2.gif"
+      ]
+    },
+    {
+        "title": "Project 3",
+        "description": "Project 3 description",
+        "imageSrc": [
+            "assets/projects/images/project3.gif",
+            "assets/projects/images/project2.gif"
+        ]
+      }
+  ]
+  

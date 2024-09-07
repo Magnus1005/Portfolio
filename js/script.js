@@ -126,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (isElementInView(element) && direction === "DOWN") {
                 element.classList.add('active');
             } else if (isElementBelowScreen(element) && direction === "UP") {
-                console.log("Removed")
                 element.classList.remove('active');
             }
 
@@ -143,3 +142,62 @@ document.addEventListener('DOMContentLoaded', function () {
   
   
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+  fetch('assets/projects/projects.json') // Update this URL to your actual JSON file
+  .then(response => response.json())
+  .then(data => {
+      const projectsContainer = document.getElementById('projects-container');
+
+
+      // Iterate through the fetched data and create project articles
+      data.forEach(project => {
+          // Create article element
+          const article = document.createElement('article');
+          article.classList.add('project-article');
+
+          // Create text div
+          const textDiv = document.createElement('div');
+          textDiv.classList.add('project-article-text');
+
+          // Create title
+          const title = document.createElement('h4');
+          title.textContent = project.title;
+
+          // Create description
+          const description = document.createElement('p');
+          description.textContent = project.description;
+
+          // Append title and description to text div
+          textDiv.appendChild(title);
+          textDiv.appendChild(description);
+
+
+          // Create image
+          const images = project.imageSrc; // Get the files from this file PATH
+          const image = document.createElement('img');
+          image.classList.add('project-article-image');
+          image.src = project.imageSrc[0]; // User the first image here from images
+          image.alt = project.title;
+
+          // Append text div and image to article
+          article.appendChild(textDiv);
+          article.appendChild(image);
+
+
+          // Append article to the container
+          projectsContainer.appendChild(article);
+      });
+  })
+  .catch(error => console.error('Error fetching data:', error));
