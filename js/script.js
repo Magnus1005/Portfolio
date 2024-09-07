@@ -194,6 +194,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const leftArrowIcon = document.createElement('img');
       leftArrowIcon.src = 'assets/icons/arrow-left.svg';
       leftArrowIcon.width = 20;
+      leftArrowIcon.addEventListener('mousedown', () => {
+        console.log("down");
+        leftArrowIcon.classList.add('pressed');
+    });
       leftArrow.appendChild(leftArrowIcon);
 
       // Create right arrow
@@ -253,15 +257,62 @@ document.addEventListener('DOMContentLoaded', function () {
 
       imageContainer.appendChild(imgElement);
 
+      // Swipe detection variables
+      let startX, startY, endX, endY;
+
+      imageContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      });
+
+      imageContainer.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        endY = e.changedTouches[0].clientY;
+
+        const deltaX = endX - startX;
+        const deltaY = endY - startY;
+
+        // Determine swipe direction
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 30) { // horizontal swipe
+          if (deltaX < 0) {
+            // Swipe left
+            currentIndex = (currentIndex + 1) % images.length;
+          } else {
+            // Swipe right
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+          }
+          updateImage(currentIndex);
+        }
+      });
+      
+
       // Append text div and image container to article
       article.appendChild(textDiv);
       article.appendChild(imageContainer);
 
       // Append article to the container
       projectsContainer.appendChild(article);
+
+
+
+      document.querySelectorAll('.arrow').forEach(button => {
+        button.addEventListener('mousedown', () => {
+          button.classList.add('pressed');
+        });
+
+        button.addEventListener('mouseup', () => {
+          button.classList.remove('pressed');
+        });
+
+        button.addEventListener('mouseleave', () => {
+          button.classList.remove('pressed');
+        });
+      });
     });
   })
   .catch(error => console.error('Error fetching data:', error));
 
 
+
+  
 

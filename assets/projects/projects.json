@@ -18,7 +18,9 @@
         "description": "Project 3 description",
         "imageSrc": [
             "assets/projects/images/project3.gif",
-            "assets/projects/images/project2.gif"
+            "assets/projects/images/project2.gif",
+            "assets/projects/images/project1.jpg",
+            "assets/projects/images/project4.gif"
         ]
       }
   ]
