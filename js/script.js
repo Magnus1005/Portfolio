@@ -224,13 +224,13 @@ document.addEventListener('DOMContentLoaded', function () {
       // Create initial image
       const imgElement = document.createElement('img');
       imgElement.classList.add('project-article-image');
-      imgElement.src = images[0];
-      imgElement.alt = project.title;
-
       let currentIndex = 0;
+
+      updateImage(currentIndex);
 
       function updateImage(index) {
         imgElement.src = images[index];
+        imgElement.alt = project.title + " - Image No. " + (index + 1);
         // Update dots
         const dots = dotsContainer.querySelectorAll('.dot');
         dots.forEach((dot, i) => {
