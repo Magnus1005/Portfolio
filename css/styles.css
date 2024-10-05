@@ -3,7 +3,6 @@
   --text: #ffffff;
   --button-hover: #1d1e1e;
   --highlight: #333;
-  --darkLighter: #242424;
 
   --font: 'IBM Plex Mono', monospace;
 
@@ -11,10 +10,8 @@
   --darkLighter: #242424;
   --light: #e8e6e3;
   --lightDarker: #848484;
-  --accent: #fd8b17;
-  --lightRgb: 232,230,227;
-  --accentRgb: 253, 139, 23;
-  --darkRgb: 24,26,27;
+  --accent: #ff5900;
+  --accentRgb: 255, 89, 0;
   --shadowColor: rgba(0,0,0,.75);
   --shadow: 0 0px 10px var(--shadowColor);
   --shadowLifted: 0 0px 64px -10px var(--shadowColor)
@@ -59,6 +56,11 @@ h3:after {
   transform: translate(-50%);
   transition: all var(--transitionDuration) ease;
   width: 2.5rem
+}
+
+
+p, h4 {
+  margin-top: 10px;
 }
 
 
@@ -296,6 +298,19 @@ section {
 
 .about-section {
   margin-top:75vh;
+}
+
+.about-section-body {
+  display: grid;
+  gap: 20px;
+}
+
+.about-section-text {
+  grid-column: 1;
+
+}
+.about-section-skills {
+  grid-column: 2;
 }
 
 .skills-list {
@@ -549,7 +564,7 @@ input:focus, textarea:focus {
 
 
 .contact-form-button {
-  background-color: rgba(var(--accentRgb),.8);
+  background-color: rgba(var(--accentRgb),1);
   border: none;
   border-radius: 4px;
   box-shadow: var(--shadow);
@@ -691,7 +706,10 @@ input:focus, textarea:focus {
   }
 
 
-
+  .about-section-body {
+    display: flex;
+    flex-direction: column;
+  }
 
 
 

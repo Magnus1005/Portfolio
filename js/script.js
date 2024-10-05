@@ -217,7 +217,13 @@ document.addEventListener('DOMContentLoaded', function () {
       images.forEach((_, index) => {
         const dot = document.createElement('span');
         dot.classList.add('dot');
-        if (index === 0) dot.classList.add('active');
+        if (index === 0) dot.classList.add('active');        
+
+        // Add event listener for the click on the dot
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateImage(currentIndex);
+        });
         dotsContainer.appendChild(dot);
       });
 
